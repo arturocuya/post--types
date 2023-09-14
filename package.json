@@ -1,0 +1,19 @@
+{
+    "private": true,
+    "version": "0.0.1",
+    "devDependencies": {
+        "@rokucommunity/bslint": "^0.8.10",
+        "brighterscript": "0.66.0-alpha.4",
+        "brighterscript-formatter": "^1.6.32"
+    },
+    "scripts": {
+        "prebuild": "rm -rf dist",
+        "build": "bsc",
+        "build:prod": "npm run build -- --sourceMap=false",
+        "lint": "bslint --project config/bsconfig.lint.json --lintConfig config/bslint.jsonc",
+        "lint:fix": "npm run lint -- --fix",
+        "format:base": "bsfmt \"src/**/*.brs\" \"src/**/*.bs\" \"!src/components/lib/**/*\" \"!src/source/lib/**/*\" \"!**/bslib.brs\" --bsfmt-path \"config/bsfmt.jsonc\"",
+        "format": "npm run format:base -- --check",
+        "format:fix": "npm run format:base -- --write"
+    }
+}
